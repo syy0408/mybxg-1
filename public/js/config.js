@@ -6,6 +6,15 @@ require.config({
 		cookie:'jquery-cookie/jquery.cookie',
 		template:'artTemplate/template-web',
 		teacherlist:'../js/teacher-list',
+		teacheradd:'../js/teacher-add',
+		bootstrap:'bootstrap/js/bootstrap.min',
+		index:'../js/index',
+		util:'../js/util',
 		login:'../js/login'
+	},
+	shim:{ //把非标准模块转化为标准模块
+		bootstrap:{
+			deps:['jquery']
+		}
 	}
 });
