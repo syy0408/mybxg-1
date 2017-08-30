@@ -1,0 +1,10 @@
+require.config({
+	baseUrl:'/public/assets',
+	paths:{
+		jquery:'jquery/jquery.min',
+		common:'../js/common',
+		cookie:'jquery-cookie/jquery.cookie',
+		template:'artTemplate/template-web',
+		login:'../js/login'
+	}
+});
