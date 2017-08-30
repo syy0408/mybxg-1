@@ -5,6 +5,7 @@ require.config({
 		common:'../js/common',
 		cookie:'jquery-cookie/jquery.cookie',
 		template:'artTemplate/template-web',
+		teacherlist:'../js/teacher-list',
 		login:'../js/login'
 	}
 });
