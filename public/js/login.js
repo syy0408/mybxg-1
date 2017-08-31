@@ -1,6 +1,7 @@
 define(['jquery','cookie'],function($){
 	//实现登录功能
 	$('#loginBtn').click(function(){
+        
         $.ajax({
             type:'post',
             url:'/api/login',
@@ -20,6 +21,7 @@ define(['jquery','cookie'],function($){
                 }
             }
         });
+
         return false;
     });
 
