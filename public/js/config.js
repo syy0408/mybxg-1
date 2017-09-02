@@ -8,6 +8,7 @@ require.config({
 		template:'artTemplate/template-web',
 		teacherlist:'../js/teacher-list',
 		teacheradd:'../js/teacher-add',
+		settings:'../js/settings',
 		bootstrap:'bootstrap/js/bootstrap.min',
 		validate:'validate/jquery-validate.min',
 		index:'../js/index',
