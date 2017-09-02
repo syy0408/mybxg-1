@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language'],function($,template,util){
+define(['jquery','template','util','datepicker','language','validate'],function($,template,util){
 
 	//设置导航菜单选中
 	util.setMenu('/teacher/list');
@@ -33,24 +33,47 @@ define(['jquery','template','util','datepicker','language'],function($,template,
 	}
 
 
-	//实现表单提交功能
-	function submitForm(url){
-		$('#subBtn').click(function(){
-			$.ajax({
-				type:'post',
-				url:url,
-				data:$('#formId').serialize(),
-				dataType:'json',
-				success:function(data){
-					if(data.code==200){
-						location.href='/teacher/list';
-					}
-				}
-			});
-		});
-		
-	}
+	//实现表单提交功能(ajax方法提交)
+	// function submitForm(url){
+	// 	$('#subBtn').click(function(){
+	// 		$.ajax({
+	// 			type:'post',
+	// 			url:url,
+	// 			data:$('#formId').serialize(),
+	// 			dataType:'json',
+	// 			success:function(data){
+	// 				if(data.code==200){
+	// 					location.href='/teacher/list';
+	// 				}
+	// 			}
+	// 		});
+	// 	});		
+	// }
 	
+	//实现表单提交功能(表单插件validate方法提交)
+	function submitForm(url){
+		$('#formId').validate({
+			sendForm:false,
+			valid:function(){
+				console.log(124);
+			},
+			description:{
+				tc_name:{
+					required:'用户名不能为空',
+					valid:'用户名可以使用'
+				},
+				tc_pass:{
+					required:'密码不能为空',
+					valid:'密码有效',
+					pattern:'必须是6位数字'
+				},
+				tc_join_date:{
+					required:'入职日期不能为空',
+					valid:'日期有效'
+				},
+			}
+		});
+	}
 	
 
 
