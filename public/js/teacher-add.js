@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language','validate'],function($,template,util){
+define(['jquery','template','util','datepicker','language','validate','form'],function($,template,util){
 
 	//设置导航菜单选中
 	util.setMenu('/teacher/list');
@@ -24,7 +24,7 @@ define(['jquery','template','util','datepicker','language','validate'],function(
 			    submitForm('/api/teacher/update');
 			}
 		});
-	}else {  //若ID不存在，则添加讲师
+	}else {//若ID不存在，则添加讲师
 		
 		var html=template('teacherTpl',{operate: "讲师添加",btn:"添 加",tc_gender:1});
 		$('#teacherInfo').html(html);
@@ -50,12 +50,21 @@ define(['jquery','template','util','datepicker','language','validate'],function(
 	// 	});		
 	// }
 	
-	//实现表单提交功能(表单插件validate方法提交)
+	//实现表单验证、提交功能(表单插件validate方法提交)
 	function submitForm(url){
 		$('#formId').validate({
 			sendForm:false,
 			valid:function(){
-				console.log(124);
+				//提交表单
+				$(this).ajaxSubmit({
+					type:'post',
+    				url:url,
+    				success:function(data){
+    					if(data.code==200){
+    						location.href='/teacher/list';
+    					}
+    				}
+				});
 			},
 			description:{
 				tc_name:{

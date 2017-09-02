@@ -4,6 +4,7 @@ require.config({
 		jquery:'jquery/jquery.min',
 		common:'../js/common',
 		cookie:'jquery-cookie/jquery.cookie',
+		form:'jquery-form/jquery.form',
 		template:'artTemplate/template-web',
 		teacherlist:'../js/teacher-list',
 		teacheradd:'../js/teacher-add',
