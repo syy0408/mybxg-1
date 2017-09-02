@@ -10,11 +10,16 @@ require.config({
 		bootstrap:'bootstrap/js/bootstrap.min',
 		index:'../js/index',
 		util:'../js/util',
+		datepicker:'bootstrap-datepicker/js/bootstrap-datepicker.min',
+		language:'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
 		login:'../js/login'
 	},
 	shim:{ //把非标准模块转化为标准模块
 		bootstrap:{
 			deps:['jquery']
+		},
+		language:{
+			deps:['jquery','datepicker']
 		}
 	}
 });
