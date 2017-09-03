@@ -11,6 +11,7 @@ require.config({
 		settings:'../js/settings',
 		bootstrap:'bootstrap/js/bootstrap.min',
 		validate:'validate/jquery-validate.min',
+		uploadify:'uploadify/jquery.uploadify.min',
 		index:'../js/index',
 		util:'../js/util',
 		datepicker:'bootstrap-datepicker/js/bootstrap-datepicker.min',
@@ -25,6 +26,9 @@ require.config({
 			deps:['jquery','datepicker']
 		},
 		validate:{
+			deps:['jquery']
+		},
+		uploadify:{
 			deps:['jquery']
 		}
 	}
