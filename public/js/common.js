@@ -1,7 +1,8 @@
-define(['jquery','template','cookie'],function($,template){
+define(['jquery','template','nprogress','cookie'],function($,template,NProgress){
 
-    // NProgress.start();
-    // NProgress.done();
+    //控制页面顶部的进度条
+    NProgress.start();
+    NProgress.done();
     
     //左侧导航栏菜单展开和缩进功能
     $('.navs ul').prev('a').on('click', function () {

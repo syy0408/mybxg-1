@@ -11,6 +11,7 @@ require.config({
 		teacheradd:'../js/teacher-add',
 		settings:'../js/settings',
 		bootstrap:'bootstrap/js/bootstrap.min',
+		nprogress:'nprogress/nprogress',
 		ckeditor:'ckeditor/ckeditor',
 		validate:'validate/jquery-validate.min',
 		uploadify:'uploadify/jquery.uploadify.min',
@@ -18,7 +19,8 @@ require.config({
 		util:'../js/util',
 		datepicker:'bootstrap-datepicker/js/bootstrap-datepicker.min',
 		language:'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
-		login:'../js/login'
+		login:'../js/login',
+		state:'../js/state'
 	},
 	shim:{ //把非标准模块转化为标准模块
 		bootstrap:{
