@@ -5,6 +5,7 @@ require.config({
 		common:'../js/common',
 		cookie:'jquery-cookie/jquery.cookie',
 		form:'jquery-form/jquery.form',
+		region:'jquery-region/jquery.region',
 		template:'artTemplate/template-web',
 		teacherlist:'../js/teacher-list',
 		teacheradd:'../js/teacher-add',

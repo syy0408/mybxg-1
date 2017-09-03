@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language','uploadify'],function($,template,util){
+define(['jquery','template','util','datepicker','language','uploadify','region'],function($,template,util){
 
 	//设置导航菜单选中
 	util.setMenu('/main/index');
@@ -15,7 +15,7 @@ define(['jquery','template','util','datepicker','language','uploadify'],function
 			$('#settingInfo').html(html);
 
 
-			//处理头像上传
+			//处理头像上传  ==============有问题！！！！
 			$('#upfile').uploadify({
 				width:120,
 				height:120,
@@ -34,6 +34,12 @@ define(['jquery','template','util','datepicker','language','uploadify'],function
 
 			});
 
+
+
+			//省市县三级联动
+			$('#pcd').region({
+				url:'/public/assets/jquery-region/region.json'
+			});
 
 
 		}
