@@ -1,4 +1,4 @@
-define(['jquery','template','util','ckeditor','datepicker','language','uploadify','region'],function($,template,util,CKEDITOR){
+define(['jquery','template','util','ckeditor','datepicker','language','uploadify','region','validate','form'],function($,template,util,CKEDITOR){
 
 	//设置导航菜单选中
 	util.setMenu('/main/index');
@@ -13,7 +13,6 @@ define(['jquery','template','util','ckeditor','datepicker','language','uploadify
 			//解析数据，渲染页面
 			var html=template('settingTpl',data.result);
 			$('#settingInfo').html(html);
-
 
 			//处理头像上传  ==============有问题！！！！
 			$('#upfile').uploadify({
@@ -31,16 +30,12 @@ define(['jquery','template','util','ckeditor','datepicker','language','uploadify
 			        $('.preview img').attr('src',data.result.path);
 			    }
 
-
 			});
-
-
 
 			//省市县三级联动
 			$('#pcd').region({
 				url:'/public/assets/jquery-region/region.json'
 			});
-
 
 			//处理富文本
 			CKEDITOR.replace('editor',{
@@ -49,6 +44,34 @@ define(['jquery','template','util','ckeditor','datepicker','language','uploadify
 					{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
 					{ name: 'links' }
 				]
+			});
+
+			//处理表单提交
+			$('#settingForm').validate({
+				sendForm:false,
+				valid:function(){
+					//同步富文本信息到textarea中
+					for(var instance in CKEDITOR.instances){
+						CKEDITOR.instances[instance].updateElement();
+					}
+					//获取省市县名称
+					var p=$('#p').find('option:selected').text();
+					var c=$('#c').find('option:selected').text();
+					var d=$('#d').find('option:selected').text();
+					var hometown=p+' | '+c +'| '+d;
+					//验证通过，提交表单
+					$(this).ajaxSubmit({
+						type:'post',
+						url:'/api/teacher/modify',
+						data:{tc_hometown:hometown},
+						dataType:'json',
+						success:function(data){
+							if(data.code==200){
+								location.reload();
+							}
+						}
+					});
+				}
 			});
 
 
