@@ -11,6 +11,7 @@ require.config({
 		teacheradd:'../js/teacher-add',
 		settings:'../js/settings',
 		bootstrap:'bootstrap/js/bootstrap.min',
+		ckeditor:'ckeditor/ckeditor',
 		validate:'validate/jquery-validate.min',
 		uploadify:'uploadify/jquery.uploadify.min',
 		index:'../js/index',
@@ -31,6 +32,9 @@ require.config({
 		},
 		uploadify:{
 			deps:['jquery']
+		},
+		ckeditor:{
+			exports:'CKEDITOR'
 		}
 	}
 });
